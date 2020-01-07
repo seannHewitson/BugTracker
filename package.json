@@ -1,0 +1,30 @@
+{
+  "name": "bugtracker",
+  "version": "0.0.1",
+  "description": "Bug Tracking Application",
+  "main": "js/app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "https": "^1.0.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node js/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seannHewitson/BugTracker.git"
+  },
+  "author": "Seann Hewitson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seannHewitson/BugTracker/issues"
+  },
+  "homepage": "https://github.com/seannHewitson/BugTracker#readme"
+}
