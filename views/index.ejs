@@ -3,8 +3,30 @@
         <%- include('partials/head'); %>
     </head>
     <body>
+        <%- include('partials/navigation'); %>
         <div class='content'>
-            Home page.
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Description</th>
+                    <th>Page</th>
+                    <th>Component</th>
+                    <th>Type</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+                <% bugs.forEach(function(bug){ %>
+                    <tr>
+                        <td><%= bug.ID %></td>
+                        <td><%= bug.description %></td>
+                        <td><%= bug.page %></td>
+                        <td><%= bug.component %></td>
+                        <td><%= bug.type %></td>
+                        <td><%= bug.priority %></td>
+                        <td><%= bug.status %></td>
+                    </tr>
+                <% }); %>
+            </table>
         </div>
     </body>
 </html>

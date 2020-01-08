@@ -40,7 +40,7 @@ app.use(session({
 //  app.use(passport.session());
 
 app.use('/', require('../routes/index')());
-app.use('/Login', require('../routes/Login')());
+app.use('/Auth', require('../routes/Auth')());
 
 // Error Handling
 app.use(function(req, res, next){   // 404 not found error
