@@ -1,0 +1,155 @@
+<%
+function getStatus(status){
+    return status == "Completed" ? "table-success" : status == "Testing" ? "table-warning" : status == "In Progress" ? "table-primary" : "table-danger";
+};
+%>
+<html>
+    <head>
+        <%- include('partials/head'); %>
+        <style>
+            body{
+                min-width:1000px;
+            }
+            /* Sidebar */
+            #sidebar-wrapper{
+                z-index:1;
+                position: absolute;
+                width:0;
+                height:calc(100% - 56px);
+                overflow-y:hidden;
+                opacity:0.9;
+                background:#343a40 !important;
+                transition:all .5s;
+                color:white;
+            }
+
+            /* Main Content */
+            #page-content-wrapper{
+                width: 100%;	
+                position: absolute;
+                /* padding:15px; */
+                transition:all .5s;
+            }
+            /* Change the width of the sidebar to display it*/
+            #wrapper.menuDisplayed #sidebar-wrapper{
+                width:250px;
+            }
+
+            #wrapper.menuDisplayed #page-content-wrapper{
+                padding-left:250px;
+            }
+
+            /* Sidebar styling */
+            .sidebar-nav{
+                padding:0;
+                list-style:none; 
+                transition:all .5s;
+                width:100%;
+                text-align:center;
+            }
+
+            .sidebar-nav li{
+                line-height:40px;  
+                width:100%;
+                transition:all .3s;
+                padding:10px;
+            }
+
+            .sidebar-nav li a {
+                display:block;
+                text-decoration:none;
+                color:#ddd;
+            }
+
+            .sidebar-nav li:hover{
+                background:#846bab;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark border-bottom-generic">
+            <span class="text-center">
+                <a href="#" id='menu-toggle' class="text-white"><i class="fas fa-users fa-lg"></i><br>Users</a>
+            </span>
+            <div class="bg-dark p-0">
+                <h5 class="navbar-brand mb-0 h1">BugTracker</h5>
+                <span class="navbar-brand">-&nbsp;&nbsp;&nbsp;Project <%= project %></span>
+            </div>
+            <span class="text-center">
+                <a href="#" class="text-white"><i class="fas fa-comments fa-lg"></i><br>Chat</a>
+            </span>
+
+          </nav>
+          <!--  Members section on left (toggleable, maybe add button to the nav bar)  -->
+          <div id="wrapper"class='menuDisplayed'>
+            <div id="sidebar-wrapper">
+                <h4 class='text-center '>Members</h4>
+                <ul class="sidebar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+          
+            <div id="page-content-wrapper">
+                <table class="table table-striped table-bordered table-hover" style="max-height:calc(100% - (56px + 30rem));">
+                    <thead class="">
+                    <tr>
+                        <th scope="col">ID</th scope="col">
+                        <th scope="col">Description</th>
+                        <th scope="col">Page</th>
+                        <th scope="col">Component</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Priority</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% bugs.forEach(function(bug){ %>
+                            <tr class=<%= getStatus(bug.status); %>>
+                                <td class="text-center"><%= bug.ID %></td>
+                                <td><%= bug.description %></td>
+                                <td><%= bug.page %></td>
+                                <td><%= bug.component %></td>
+                                <td><%= bug.type %></td>
+                                <td><%= bug.priority %></td>
+                                <td><%= bug.status %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                <div class='bugInfo'>
+                    <div class='row'>
+                        <div class='col'>
+                            <h2 class='text-center'>Information</h2>
+                            asdasd
+                        </div>
+                        <div class='col'>
+                            <h2 class='text-center'>Comments</h2>
+                            asdasd
+                        </div>
+                    </div>
+                </div>
+                <div class="container m-0 p-0" style='position:absolute;'>
+                    <div class="row text-center m-0 p-0">
+                      <div class="col bg-dark">col</div>
+                      <div class="col">col</div>
+                      <div class="w-100"></div>
+                      <div class="col">col</div>
+                      <div class="col">col</div>
+                    </div>
+                  </div>
+            </div>
+            <!--  Chat Section to the right, displayed by button in nav  -->
+            <!--  Bug Info Section  -->
+        </div>
+        <script>
+        $(document).ready(function(){
+            $("#menu-toggle").click(function(e){
+                e.preventDefault();
+                $("#wrapper").toggleClass("menuDisplayed");
+            });
+        });
+        </script>
+    </body>
+</html>

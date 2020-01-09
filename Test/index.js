@@ -19,19 +19,12 @@ module.exports = function(){
         });
     }
     router.get('/', function(req, res, next){
-        res.render('index.ejs', {
-            title: "Home",
+        res.render('Test.ejs', {
+            title: "Test Page",
             version: global.version,
+            project: 'Test Project',
             bugs: bugs
         });            
-    });
-
-    router.get('/Tracker/:ProjectID', function(req, res, next){
-        if(req.params.ProjectID !== null)
-        res.render('index.ejs', {
-            title: "Bug Tracker",
-            version: global.version
-        });
     });
 
     return router;
