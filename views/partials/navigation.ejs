@@ -1,5 +1,142 @@
-<nav>
-    <span class='logo'>BugTracker</span>
-     - 
-    <span class='application'>Project Name</span>
+<style>
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+a, img, b, u, i, center, ol, ul, li, form, label,
+article, footer, header, hgroup, menu, nav, section{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+html{	font-size:16px;	}
+
+body{
+    background:#29292E;
+    color:#D9D9D1;
+	font-family:Titillium Web, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    max-width:100vw;
+    overflow-x:hidden;
+}
+.ta-l{  text-align:left;    }
+.ta-c{  text-align:center;  }
+.ta-r{  text-align:right;   }
+
+.col3{
+    position:relative;
+    display:inline-block;
+    width:calc((100% / 3) - 2px);
+    height:100%;
+}
+.col3:nth-child(odd){
+    background:rgba(100, 100, 100, .2);
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px;
+    background:rgba(100, 100, 100, .2);
+    box-shadow:0px -1px 4px 1px black;
+}
+.show nav{
+    width:calc(100% - 350px);
+    left:350px;
+}
+nav ul{
+    position:relative;
+    display:block;
+    width:100%;
+    height:100%;
+    list-style:none;
+    /*line-height:80px;*/
+    overflow-y:hidden;
+}
+nav ul li{
+    position:relative;
+    display:inline-block;
+    vertical-align:text-top;
+    padding:20px;
+    text-align:center;
+    cursor:pointer;
+    /*height:100%;*/
+}
+nav ul li:hover{
+    background:rgba(0, 129, 255, .3);
+}
+nav ul li.logo{
+    line-height:40px;
+}
+nav ul li:not(.logo) span{
+    display:block;
+}
+nav ul li span.icon{
+    font-size:1.5rem;
+}
+nav ul li:not(.logo) span.text{
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+
+
+
+
+nav ul li,
+.anim, .animall, .animall:after, .animall:before{
+    transition:300ms cubic-bezier(.4, 0, .2, 1);
+    -o-transition:300ms cubic-bezier(.4, 0, .2, 1);
+    -ms-transition:300ms cubic-bezier(.4, 0, .2, 1);
+    -moz-transition:300ms cubic-bezier(.4, 0, .2, 1);
+    -webkit-transition:300ms cubic-bezier(.4, 0, .2, 1);
+}
+</style>
+<nav class='anim'>
+    <ul class='list'>
+        <div class='col3 ta-l'>
+            <li id='btnAccount'>
+                <span class='icon'><i class='fa fa-chevron-left'>&nbsp;</i></span>
+                <span class='text'>Hide</span>
+            </li>
+        </div><div class='col3 ta-c'>
+            <li class='logo'>
+                <span class='icon'><i class='fa fa-code'>&nbsp;</i></span>
+                <span class='text'>BugTracker</span>
+            </li>
+        </div>
+        <div class='col3 ta-r'>
+            <li>
+                <span class='icon'><i class='fa fa-plus'>&nbsp;</i></span>
+                <span class='text'>New List</span>
+            </li>
+            <li>
+                <span class='icon'><i class='fa fa-commenting-o'>&nbsp;</i></span>
+                <span class='text'>Chat</span>
+            </li>
+            <li>
+                <span class='icon'><i class='fa fa-sliders'>&nbsp;</i></span>
+                <span class='text'>Filter</span>
+            </li>
+        </div>
+    </ul>
 </nav>
+<script>
+    var body = document.getElementsByTagName('body')[0];
+    var btnAccount = document.getElementById('btnAccount');
+    btnAccount.onclick = function(){
+        var icon = this.querySelector('.fa');
+        var text = this.querySelector('.text');
+        if(body.classList.contains('show')){
+            //  Set to Account
+            body.classList.remove('show');
+            icon.className = 'fa fa-bars';
+            text.innerHTML = 'Account';
+        } else {
+            //  Set to Hide
+            body.classList.add('show');
+            icon.className = 'fa fa-chevron-left';
+            text.innerHTML = 'Hide';
+        }
+    }
+</script>
