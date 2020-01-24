@@ -21,7 +21,7 @@ console.log('Launching BugTracker '.cyan + `v${global.version}`.yellow);
 
 //  Declare publicly accessable folders
 app.use('/js', express.static(path.resolve(global.root_path + '/js/client')));
-app.use('/test', express.static(path.resolve(global.root_path + '/js/client')));
+// app.use('/test', express.static(path.resolve(global.root_path + '/js/client')));
 app.use('/css', express.static(path.resolve(global.root_path + '/css')));
 
 // Set favicon
@@ -42,7 +42,7 @@ app.use(session({
 
 app.use('/', require('../routes/index')());
 
-app.use('/Test', require('../Test')());
+app.use('/Test', require('../routes/test')());
 app.use('/Auth', require('../routes/Auth')());
 
 // Error Handling

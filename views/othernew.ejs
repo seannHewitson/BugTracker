@@ -6,9 +6,10 @@
         <%- include('partials/navigation'); %>
         <div class='content'>
             <ul class='buglist'>
-                <%- bugs.forEach(function(bug){
-                    include('bug');
-                }); %>
+                <% bugs.forEach(function(bug) { %>
+                    <%- include('bug', {bug: bug}) %>
+                <% }) %>
+
             </ul>
         </div>
     </body>

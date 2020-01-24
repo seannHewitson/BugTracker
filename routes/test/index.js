@@ -25,6 +25,14 @@ module.exports = function(){
             bugs: bugs
         });            
     });
+    router.get('/Other', function(req, res, next){
+        console.log(bugs);
+        res.render('othernew.ejs', {
+            title: "Home",
+            version: global.version,
+            bugs: bugs
+        });            
+    });
 
 
     return router;
