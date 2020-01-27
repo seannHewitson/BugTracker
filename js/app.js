@@ -4,6 +4,7 @@
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
+var engine = require('ejs-locals')
 var express = require('express');
 // var logger = require('morgan');
 var https = require('https');
@@ -29,6 +30,14 @@ app.use('/css', express.static(path.resolve(global.root_path + '/css')));
 // Set App Properties
 app.set('views', path.resolve(global.root_path + '/views'));
 app.set('view engine', 'ejs');
+app.set('layout', 'views/layout');
+// app.engine('ejs', engine);
+// app.set({
+//   TextBox  : function(list) {
+//     var template = fs.readFileSync('TextBox.ejs', 'utf-8');
+//     return ejs.render(template, list);
+//   }
+// });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));

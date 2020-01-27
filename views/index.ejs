@@ -1,32 +1,12 @@
+<%- include('controls/dom.ejs');  %>
 <html>
     <head>
         <%- include('partials/head'); %>
     </head>
     <body>
-        <%- include('partials/navigation'); %>
         <div class='content'>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Description</th>
-                    <th>Page</th>
-                    <th>Component</th>
-                    <th>Type</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                </tr>
-                <% bugs.forEach(function(bug){ %>
-                    <tr>
-                        <td><%= bug.ID %></td>
-                        <td><%= bug.description %></td>
-                        <td><%= bug.page %></td>
-                        <td><%= bug.component %></td>
-                        <td><%= bug.type %></td>
-                        <td><%= bug.priority %></td>
-                        <td><%= bug.status %></td>
-                    </tr>
-                <% }); %>
-            </table>
+            <%# include('controls/TextBox.ejs', {id: "test", placeholder: "test", title: "Test Title", value: "asdasdasd"}); %>
+            <%- TextBox({id: "test", placeholder: "test", title: "Test Title", value: "asdasdasd"}); %>
         </div>
     </body>
 </html>
