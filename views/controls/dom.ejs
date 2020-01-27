@@ -1,7 +1,38 @@
 <%
 TextBox = function(data){
+    var cName = "customInput";
+    if(data.classNames) cName += ` ${data.classNames}`;
+    if(data.autocomplete) cName += ` autocomplete`;
+    var ret = `<span class='${cName}'>`;
+    ret += `<input id='${data.id}' type='${data.type ? data.type : "text"}'`;
+    if(data.value)  ret += `value='${data.value}'`;
+    if(data.placeholder) ret += `placeholder='${data.placeholder}'`;
+    if(data.autocomplete) ret += `data-source='${data.autocomplete}'`;
+    ret += `/>`;
+    ret += `<label for=${data.id}>${data.title}</label>`;    
+    if(autocomplete)    ret += `<ul id='${data.id}-autocomplete'></ul>`;
+    return ret;
+};
+DropDown = function(data){
+    var cName = "customInput";
+    if(data.classNames) cName += ` ${data.classNames}`;
+    var ret = `<span class='${cName}'>`;
+    ret += `<select>`;
+    if(data.showPleaseSelect)   ret += `<option>Please Select...</option>`;
+    if(data.showAll)   ret += `<option value='%'>All</option>`;
+    if(data.options){
+        data.options.forEach(function(option){
+            ret += `<option value='${option[0]}'>${option[1]}</option>`;
+        });
+    }
+    ret += `</select>`;
+    ret += `<label for=${data.id}>${data.title}</label>`;    
+    ret += `</span>`;
+    return ret;
+};
+CheckBox = function(data){
     var ret = `<span class='SHTextBox'>`;
-    ret += `<input type='text' id='${data.id}' value='${data.value}' />`;
+    
     ret += `</span>`;
     return ret;
 }

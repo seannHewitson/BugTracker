@@ -321,3 +321,64 @@ tr:nth-child(even) {
 tr:not(:first-child):hover{
     background:red;
 }
+
+/*  Custom Controls */
+.customInput{
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    padding:5px;
+    padding-top:15px;
+    background:rgba(241, 241, 246, .7);
+    margin-bottom:5px;
+    border-radius:2px;
+    min-width:150px;
+}
+.customInput.xsmall{width:calc(25% - 13.5px)}
+.customInput.small{width:calc((100% / 3) - 13px);}
+.customInput.medium{width:calc(50% - 12.3px);}
+.customInput.large{width:calc(75% - 11px);}
+.customInput.xlarge{width:calc(100% - 10px);}
+
+.customInput label{
+    position:absolute;
+    top:15px;
+    left:0;
+    margin-left:10px;
+    line-height:150%;
+    font-weight:bold;
+    z-index:1;
+    cursor:text;
+}
+.customInput input,
+.customInput select,
+.customInput textarea{
+    position:relative;
+    display:block;
+    width:100%;
+    padding:4px 0;
+    text-align:left;
+    border:1px solid black;
+    background:none;
+    color:black;
+    border:none;
+    border-bottom:1px solid;
+    outline:0;
+}
+.customInput select,
+.customInput select option{
+    /* background:#626266; */
+}
+.customInput textarea{
+    resize:none;
+    height:100px;
+}
+.customInput input:focus ~ label,
+.customInput select ~ label,
+.customInput textarea:focus ~ label,
+.customInput input:not([value=""]) ~ label,
+.customInput textarea:not([value=""]) ~ label{
+    top:0px;
+    margin-left: 5px;
+    font-size: 13px;
+}

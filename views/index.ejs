@@ -6,7 +6,14 @@
     <body>
         <div class='content'>
             <%# include('controls/TextBox.ejs', {id: "test", placeholder: "test", title: "Test Title", value: "asdasdasd"}); %>
-            <%- TextBox({id: "test", placeholder: "test", title: "Test Title", value: "asdasdasd"}); %>
+            <%- TextBox({id: 'txtTest', title: 'Test Textbox:', autocomplete: 'testDataSource'}); %>
+            <%- DropDown({id: 'ddlTest', title: 'Test DropDown:', options: [
+            ["Value1", "Text 1"],
+            ["Value2", "Text 2"],
+            ["Value3", "Text 3"],
+            ["Value4", "Text 4"],
+            ["Value5", "Text 5"],
+            ]}); %>
         </div>
     </body>
 </html>
