@@ -54,21 +54,21 @@ a:hover{	color:#009DFF;	} */
 .dark-bc{		border-color:#343330;	}
 .light-bc{		border-color:#CCC;	}
 /*	Transition	*/
-.anim{
+.anim, .animall, .animall:after, .animall:before{
 	transition:500ms cubic-bezier(.4, 0, .2, 1);
     -o-transition:500ms cubic-bezier(.4, 0, .2, 1);
     -ms-transition:500ms cubic-bezier(.4, 0, .2, 1);
     -moz-transition:500ms cubic-bezier(.4, 0, .2, 1);
     -webkit-transition:500ms cubic-bezier(.4, 0, .2, 1);
 }
-.anim-fast{
+.anim-fast, .animall-fast, .animall-fast:after, .animall-fast:before{
 	transition:150ms cubic-bezier(.4, 0, .2, 1);
     -o-transition:150ms cubic-bezier(.4, 0, .2, 1);
     -ms-transition:150ms cubic-bezier(.4, 0, .2, 1);
     -moz-transition:150ms cubic-bezier(.4, 0, .2, 1);
     -webkit-transition:150ms cubic-bezier(.4, 0, .2, 1);
 }
-.anim-slow{
+.anim-slow, .animall-slow, .animall-slow:after, .animall-slow:before{
 	transition:1000ms cubic-bezier(.4, 0, .2, 1);
     -o-transition:1000ms cubic-bezier(.4, 0, .2, 1);
     -ms-transition:1000ms cubic-bezier(.4, 0, .2, 1);
@@ -365,10 +365,10 @@ tr:not(:first-child):hover{
     border-bottom:1px solid;
     outline:0;
 }
-.customInput select,
+/* .customInput select,
 .customInput select option{
-    /* background:#626266; */
-}
+    background:#626266;
+} */
 .customInput textarea{
     resize:none;
     height:100px;
@@ -381,4 +381,9 @@ tr:not(:first-child):hover{
     top:0px;
     margin-left: 5px;
     font-size: 13px;
+}
+/*  Custom Inputs RadioButtons  */
+.customInput input[type="radio"]{
+    display:table-cell !important;
+    width:auto !important;
 }

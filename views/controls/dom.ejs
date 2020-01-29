@@ -31,10 +31,30 @@ DropDown = function(data){
     return ret;
 };
 CheckBox = function(data){
-    var ret = `<span class='SHTextBox'>`;
-    
+    var cName = "customInput";
+    if(data.classNames) cName += ` ${data.classNames}`;
+    var ret = `<span class='${cName}'>`;
     ret += `</span>`;
     return ret;
-}
+};
+RadioButtons = function(data){
+    var count = 0;
+    if(data.options)    count = data.options.length;
+    var cName = "customInput";
+    if(data.classNames) cName += ` ${data.classNames}`;
+    cName += `${count == 0 ? "" : count > 4 ? " d-b" : " d-t"}`;
+    var ret = `<span class='${cName}'>`;
+    if(data.options){
+        var i = 0;
+        data.options.forEach(function(option){
+            var chkClass = cName.includes('d-b') ? 'd-ib' : 'd-tcell';
+            ret += `<input type='radio' class='${chkClass}' id='${data.id}-${i}' />`;
+            ret += `<label for='${data.id}-${i}'>${option}</label>`;
+            i++;
+        });
+    }
+    ret += `</span>`;
+    return ret;
+};
 
 %>
